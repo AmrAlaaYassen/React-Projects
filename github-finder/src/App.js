@@ -4,10 +4,12 @@ import Navbar from "./Components/layouts/Navbar";
 import "./App.css";
 import Users from "./Components/users/Users";
 import Search from "./Components/users/Search";
+import Alert from "./Components/layouts/Alert";
 class App extends Component {
   state = {
     users: [],
-    loading: false
+    loading: false,
+    alert: null
   };
 
   async componentDidMount() {
@@ -19,32 +21,38 @@ class App extends Component {
     this.setState({ loading: false, users: res.data });
   }
 
-  searchUsers = searchText => {
+  searchUsers = async searchText => {
     this.setState({ loading: true });
-    axios
-      .get(
-        `https://api.github.com/search/users?q=${searchText}&client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`
-      )
-      .then(res => {
-        this.setState({ users: res.data.items});
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    const res = await axios.get(
+      `https://api.github.com/search/users?q=${searchText}&client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`
+    );
 
-      this.setState({loading:false})
-
+    this.setState({ users: res.data.items, loading: false });
   };
 
-  clearUsers () { 
-    this.setState({users: []});
+  clearUsers() {
+    this.setState({ users: [] });
   }
+
+  setAlert = (msg, type) => {
+    this.setState({ alert: { msg: msg, type: type } });
+
+    setTimeout(() => {
+      this.setState({alert: null});
+    }, 2000);
+  };
   render() {
     return (
       <div className="App">
         <Navbar />
         <div className="container">
-          <Search searchUsers={this.searchUsers} clearUsers={this.clearUsers.bind(this)} showClear={this.state.users.length>0? true: false}/>
+    {this.state.alert && <Alert alert={this.state.alert} /> }
+          <Search
+            searchUsers={this.searchUsers}
+            clearUsers={this.clearUsers.bind(this)}
+            showClear={this.state.users.length > 0 ? true : false}
+            setAlert={this.setAlert.bind(this)}
+          />
           <Users loading={this.state.loading} users={this.state.users} />
         </div>
       </div>
