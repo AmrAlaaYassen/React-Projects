@@ -1,51 +1,45 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Search extends Component {
-  state = {
-    text: ""
+const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
+  const [text, setText] = useState("");
+
+  const onChange = e => {
+    setText(e.target.value);
   };
 
-  onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  onSubmit(e) {
+  const onSubmit = e => {
     e.preventDefault();
-    if (this.state.text === "") {
-      this.props.setAlert("Please search word", "light");
+    if (text === "") {
+      setAlert("Please search word", "light");
     } else {
-      this.props.searchUsers(this.state.text);
-      this.setState({ text: "" });
+      searchUsers(text);
+      setText("");
     }
-  }
-  render() {
-    return (
-      <div>
-        <form className="form" onSubmit={this.onSubmit.bind(this)}>
-          <input
-            name="text"
-            type="text"
-            value={this.state.text}
-            onChange={this.onChange}
-            placeholder="Search for a user"
-          />
-          <input
-            className="btn btn-dark btn-block"
-            value="search"
-            type="submit"
-          />
-        </form>
-        {this.props.showClear && (
-          <button
-            className="btn btn-light btn-block"
-            onClick={this.props.clearUsers}
-          >
-            Clear
-          </button>
-        )}
-      </div>
-    );
-  }
-}
+  };
+  
+  return (
+    <div>
+      <form className="form" onSubmit={onSubmit.bind(this)}>
+        <input
+          name="text"
+          type="text"
+          value={text}
+          onChange={onChange}
+          placeholder="Search for a user"
+        />
+        <input
+          className="btn btn-dark btn-block"
+          value="search"
+          type="submit"
+        />
+      </form>
+      {showClear && (
+        <button className="btn btn-light btn-block" onClick={clearUsers}>
+          Clear
+        </button>
+      )}
+    </div>
+  );
+};
 
 export default Search;
