@@ -1,10 +1,15 @@
-import React, { useEffect, Fragment } from "react";
+import React, { useEffect, Fragment, useContext } from "react";
 import Spinner from "../layouts/Spinner";
 import { Link } from "react-router-dom";
 import Repos from "../repos/Repos";
-const User = ({ user, loading, getUser, getUserRepos, repos, match }) => {
+import GithubContext from "../../context/github/githubContext";
+
+
+const User = ({match}) => {
+  const githubContext = useContext(GithubContext);
+  const { getSingleUser, loading, user, getUserRepos, repos } = githubContext;
   useEffect(() => {
-    getUser(match.params.login);
+    getSingleUser(match.params.login);
     getUserRepos(match.params.login);
     //eslint-disable-next-line
   }, []);
