@@ -9,7 +9,7 @@ const ContactItem = ({contact}) => {
       </h3>
       <ul className="list">
         {email && <li><i className="fas fa-envelope-open"></i> {email}</li>}
-        {phone && <li> <i className="fas fa-phone"></i> {email}</li>}
+        {phone && <li> <i className="fas fa-phone"></i> {phone}</li>}
       </ul>
       <p className="btn btn-dark btn-sm">Edit</p>
       <p className="btn btn-danger btn-sm">Delete</p>
