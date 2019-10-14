@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client" : "npm start --prefix client",
+    "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server \" \"npm run client\" "
   },
@@ -20,6 +20,7 @@
     "express-validator": "^6.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.4"
+    
   },
   "devDependencies": {
     "concurrently": "^5.0.0",
