@@ -24,7 +24,9 @@ const ContactForm = () => {
     if (current) {
       updateContact(contact);
     } else {
-      addContact(contact);
+      addContact({
+        name,email,phone,type
+      });
     }
     clearAll()
   };
@@ -59,7 +61,7 @@ const ContactForm = () => {
       />
       <input
         type='text'
-        value={[phone]}
+        value={phone}
         onChange={onChange}
         name='phone'
         placeholder='Phone'
