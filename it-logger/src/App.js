@@ -8,24 +8,27 @@ import AddLogModel from './components/logs/AddLogModal';
 import EditLogModal from './components/logs/EditLogModal';
 import AddTechModal from './components/techs/AddTechModal';
 import TechListModal from './components/techs/TechListModal';
-
+import { Provider } from 'react-redux';
+import store from './store';
 function App() {
   useEffect(() => {
     //Initialize materialize
     M.AutoInit();
   });
   return (
-    <div className='App'>
-      <SearchBar />
-      <div className='container'>
-        <Logs />
-        <AddTechModal />
-        <AddLogModel />
-        <EditLogModal />
-        <TechListModal />
-        <AddBtn />
+    <Provider store={store}>
+      <div className='App'>
+        <SearchBar />
+        <div className='container'>
+          <Logs />
+          <AddTechModal />
+          <AddLogModel />
+          <EditLogModal />
+          <TechListModal />
+          <AddBtn />
+        </div>
       </div>
-    </div>
+    </Provider>
   );
 }
 
