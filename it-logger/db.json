@@ -1,5 +1,26 @@
 {
-  "logs": [],
+  "logs": [
+    {
+      "message": "log 001",
+      "attention": false,
+      "techs": "John Doe",
+      "date": "2019-10-17T09:32:26.878Z",
+      "id": 1
+    },
+    {
+      "id": 3,
+      "message": "log 006",
+      "attention": true,
+      "techs": "John Doe"
+    },
+    {
+      "id": 4,
+      "message": "log 006",
+      "attention": true,
+      "techs": "John Doe",
+      "date": "2019-10-17T10:25:53.711Z"
+    }
+  ],
   "techs": [
     {
       "id": 1,
