@@ -1,13 +1,5 @@
 {
-  "logs": [
-    {
-      "message": "new log",
-      "attention": true,
-      "techs": "John Doe",
-      "date": "2019-10-16T22:32:59.591Z",
-      "id": 1
-    }
-  ],
+  "logs": [],
   "techs": [
     {
       "id": 1,
