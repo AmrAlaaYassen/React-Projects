@@ -27,13 +27,6 @@
       "attention": true,
       "techs": "amr alaa",
       "date": "2019-10-17T11:08:50.949Z"
-    },
-    {
-      "id": 6,
-      "message": "z",
-      "attention": false,
-      "techs": "new teecch tech",
-      "date": "2019-10-17T11:20:32.266Z"
     }
   ],
   "techs": [
@@ -43,34 +36,9 @@
       "lastName": "smith"
     },
     {
-      "id": 2,
-      "firstName": "John",
-      "lastName": "Doe"
-    },
-    {
-      "id": 3,
-      "firstName": "Sara",
-      "lastName": "Wilson"
-    },
-    {
-      "firstName": "amr",
-      "lastName": "alaa",
-      "id": 6
-    },
-    {
-      "firstName": "new ",
-      "lastName": "tech",
-      "id": 7
-    },
-    {
-      "firstName": "new",
-      "lastName": "ss",
-      "id": 8
-    },
-    {
-      "firstName": "new teecch",
-      "lastName": "tech",
-      "id": 9
+      "firstName": "Amr",
+      "lastName": "Alaa",
+      "id": 2
     }
   ]
 }
